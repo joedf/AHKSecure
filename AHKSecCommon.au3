@@ -44,8 +44,8 @@ $Dll = DllOpen("user32.dll")
 #Region ########################################### START Function section ###########################################
 Func _GUI()
 	#Region ########################################### START GUI section ###########################################
-	$Gui1 = GUICreate($AppName, 250, 280, -1, -1, BitOR($WS_SYSMENU, $WS_CAPTION, $WS_POPUP, $WS_POPUPWINDOW, $WS_BORDER, $WS_CLIPSIBLINGS))
-	GUISetFont(8, 800, 0, "MS Sans Serif")
+	$Gui1 = GUICreate($AppName, 250, 240, -1, -1, BitOR($WS_SYSMENU, $WS_CAPTION, $WS_POPUP, $WS_POPUPWINDOW, $WS_BORDER, $WS_CLIPSIBLINGS))
+	;GUISetFont(8, 800, 0, "MS Sans Serif")
 
 	$Lbl1 = GUICtrlCreateLabel("AutoHotkey", 10, 5, 110, 15, $SS_CENTER)
 	$Lbl2 = GUICtrlCreateLabel($Versionahk, 10, 20, 110, 17, $SS_CENTER)
@@ -55,16 +55,19 @@ Func _GUI()
 	If Not $Beta Then GUICtrlSetState(-1, $GUI_DISABLE)
 
 	$BtL = GUICtrlCreateButton("Execute", 10, 40, 110, 30, $BS_FLAT)
-	GUICtrlSetBkColor(-1, 0xFF0000)
+	GUICtrlSetBkColor(-1, 0xE04447)
+	GUICtrlSetColor(-1, 0xFFFFFF)
 	GUICtrlSetTip(-1, "Execute the script")
 
 	$BtLS = GUICtrlCreateButton("Execute (sandbox)", 10, 80, 110, 30, $BS_FLAT)
-	GUICtrlSetBkColor(-1, 0x00FF00)
+	GUICtrlSetBkColor(-1, 0x405871)
+	GUICtrlSetColor(-1, 0xFFFFFF)
 	GUICtrlSetTip(-1, "Execute the script in the sandbox ")
 
 	$BtLB = GUICtrlCreateButton("Execute", 130, 40, 110, 30, $BS_FLAT)
 	If $Beta Then
-		GUICtrlSetBkColor(-1, 0xFF0000)
+		GUICtrlSetBkColor(-1, 0xE04447)
+		GUICtrlSetColor(-1, 0xFFFFFF)
 	Else
 		GUICtrlSetState(-1, $GUI_DISABLE)
 	EndIf
@@ -72,22 +75,26 @@ Func _GUI()
 
 	$BtLBS = GUICtrlCreateButton("Execute (sandbox)", 130, 80, 110, 30, $BS_FLAT)
 	If $Beta Then
-		GUICtrlSetBkColor(-1, 0xFF0000)
+		GUICtrlSetBkColor(-1, 0x405871)
+		GUICtrlSetColor(-1, 0xFFFFFF)
 	Else
 		GUICtrlSetState(-1, $GUI_DISABLE)
 	EndIf
 	GUICtrlSetTip(-1, "Execute the script with AHK Beta in the sandbox " & $Versionahkbeta)
 
 	$BtE = GUICtrlCreateButton("Open in Scite", 10, 120, 233, 30, $BS_FLAT)
-	GUICtrlSetBkColor(-1, 0xFF0000)
+	GUICtrlSetBkColor(-1, 0xE04447)
+	GUICtrlSetColor(-1, 0xFFFFFF)
 	GUICtrlSetTip(-1, "Edit the script using Scite")
 
 	$BtES = GUICtrlCreateButton("Edit the script in Sandboxie", 10, 160, 233, 30, $BS_FLAT)
-	GUICtrlSetBkColor(-1, 0x00FF00)
+	GUICtrlSetBkColor(-1, 0x405871)
+	GUICtrlSetColor(-1, 0xFFFFFF)
 	GUICtrlSetTip(-1, "Edit the script in a sandboxed Scite")
 
 	$Annuler = GUICtrlCreateButton("Abort", 10, 200, 233, 30, $BS_FLAT)
-	GUICtrlSetBkColor(-1, 0x00FF00)
+	GUICtrlSetBkColor(-1, 0x405871)
+	GUICtrlSetColor(-1, 0xFFFFFF)
 	GUICtrlSetTip(-1, "Quit without doing anything")
 
 	; Si SandBoxie n'est pas installé :
