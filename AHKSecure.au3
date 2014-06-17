@@ -1,3 +1,16 @@
+#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
+#AutoIt3Wrapper_Icon=AHKSecLogo.ico
+#AutoIt3Wrapper_Outfile=bin\AHKSecure.exe
+#AutoIt3Wrapper_Res_Description=Safely Opening/Editing AHK Scripts
+#AutoIt3Wrapper_Res_Fileversion=1.0.1.0
+#AutoIt3Wrapper_Res_LegalCopyright=Copyright (C) 2013 - 2014 Perceval FARAMAZ
+#AutoIt3Wrapper_Res_Language=1036
+#AutoIt3Wrapper_Res_requestedExecutionLevel=asInvoker
+#AutoIt3Wrapper_Res_Field=Compilation Date|%date%
+#AutoIt3Wrapper_Res_Field=Compilation Time|%time%
+#AutoIt3Wrapper_Res_Field=Email|perfaram@windowslive.com
+#AutoIt3Wrapper_Run_AU3Check=n
+#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 #cs
 	The MIT License (MIT)
 
@@ -21,17 +34,6 @@
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
 #ce
-#AutoIt3Wrapper_Outfile=bin\AHKSecure.exe
-#AutoIt3Wrapper_UseUpx=n
-#AutoIt3Wrapper_Res_Description=Safely Opening/Editing AHK Scripts
-#AutoIt3Wrapper_Res_Fileversion=1.0.1.0
-#AutoIt3Wrapper_Res_LegalCopyright=Copyright (C) 2013 - 2014 Perceval FARAMAZ
-#AutoIt3Wrapper_Res_Language=1036
-#AutoIt3Wrapper_Res_requestedExecutionLevel=asInvoker
-#AutoIt3Wrapper_Res_Field=Compilation Date|%date%
-#AutoIt3Wrapper_Res_Field=Compilation Time|%time%
-#AutoIt3Wrapper_Res_Field=Email|perfaram@windowslive.com
-#AutoIt3Wrapper_Run_AU3Check=n
 Opt('MustDeclareVars', 1)
 
 Global $AppName = "AHK Secure Opening"
