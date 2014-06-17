@@ -23,14 +23,14 @@ If Not @Compiled Then
 	_error("Thou shouldst not lay-to this script with nay compilation ")
 EndIf
 
-; Controle si ahk3 est installe
+; Controle si ahk est installe
 If $Dirahk = "" Then _error("AHK is not installed ! ")
 
 ; Récupère le chemin de l'exécutable SandBox.
 $Res = StringSplit(RegRead("HKEY_CLASSES_ROOT\*\shell\sandbox\command", ""), " /", 1)
 $SandBox = $Res[1]
 
-; Récupère le chemin de l'exécutable ahk3 et Scite.
+; Récupère le chemin de l'exécutable ahk et Scite.
 If FileExists($Dirahk & "\AutoHotkey.exe") Then
 	$ahk = $Dirahk & "\AutoHotkey.exe"
 	$beta = $Beta
@@ -58,11 +58,11 @@ Func _GUI()
 	GUICtrlSetBkColor(-1, 0xFF0000)
 	GUICtrlSetTip(-1, "Execute the script")
 
-	$BtLS = GUICtrlCreateButton("Execute, sandboxed", 10, 80, 110, 30, $BS_FLAT)
+	$BtLS = GUICtrlCreateButton("Execute (sandbox)", 10, 80, 110, 30, $BS_FLAT)
 	GUICtrlSetBkColor(-1, 0x00FF00)
 	GUICtrlSetTip(-1, "Execute the script in the sandbox ")
 
-	$BtLB = GUICtrlCreateButton("Lancer", 130, 40, 110, 30, $BS_FLAT)
+	$BtLB = GUICtrlCreateButton("Execute", 130, 40, 110, 30, $BS_FLAT)
 	If $Beta Then
 		GUICtrlSetBkColor(-1, 0xFF0000)
 	Else
@@ -70,7 +70,7 @@ Func _GUI()
 	EndIf
 	GUICtrlSetTip(-1, "Execute with AHK Beta" & $Versionahkbeta)
 
-	$BtLBS = GUICtrlCreateButton("Execute, sandboxed", 130, 80, 110, 30, $BS_FLAT)
+	$BtLBS = GUICtrlCreateButton("Execute (sandbox)", 130, 80, 110, 30, $BS_FLAT)
 	If $Beta Then
 		GUICtrlSetBkColor(-1, 0xFF0000)
 	Else
@@ -182,7 +182,7 @@ EndFunc   ;==>_Sortie
 Func _chooseinstall()
 
 	$GUI2 = GUICreate($AppName, 380, 110, -1, -1)
-	$Option = GUICtrlCreateLabel("Choose your install option " 45, 20, 350, 20)
+	$Option = GUICtrlCreateLabel("Choose your install option ", 45, 20, 350, 20)
 	GUICtrlSetFont(-1, 10, 800, 0, "MS Sans Serif")
 	$Installer = GUICtrlCreateButton("Activate", 50, 60, 130, 30, $BS_FLAT)
 	$Desinstaller = GUICtrlCreateButton("Deactivate", 200, 60, 130, 30, $BS_FLAT)
@@ -232,11 +232,13 @@ Func _ChoixClic()
 			Case $Ok
 				If BitAND(GUICtrlRead($Rd1), $GUI_CHECKED) = $GUI_CHECKED Then
 					If RegRead($HKey_AUShell, "") Then
-						RegWrite($HKey_AUShell, "", "REG_SZ", 'Run')
+						RegWrite($HKey_AUShell&"\Open\Command", "", "REG_SZ", '"C:\Program Files\AutoHotkey\AutoHotkey.exe" "%1" %*')
+						RegWrite($HKey_AUShell, "", "REG_SZ", "Open")
 					EndIf
 				Else
 					If RegRead($HKey_AUShell, "") Then
-						RegWrite($HKey_AUShell, "", "REG_SZ", 'Edit')
+						RegWrite($HKey_AUShell&"\Edit\Command", "", "REG_SZ", '"C:\Program Files\AutoHotkey\SciTE\SciTE.exe" "%1"')
+						RegWrite($HKey_AUShell, "", "REG_SZ", "Edit")
 					EndIf
 				EndIf
 				Exit
